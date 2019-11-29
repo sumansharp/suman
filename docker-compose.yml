@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  app:
+    # replace imageName with your image name (block in your case)
+    image: suman.app:latest
+    ports:
+      - 8080:8080 # Replace the port of your application here if used
+    depends_on: 
+      - db
+  db:
+    image: mongo
+    volumes:
+      - ./database:/data
+    ports:
+      - "27017:27017"   
